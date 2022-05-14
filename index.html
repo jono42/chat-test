@@ -3,8 +3,9 @@
   <head>
     <script src="https://unpkg.com/peerjs@1.4.4/dist/peerjs.min.js"></script>
     <script>
+      var channel = prompt('channel?');
       var realConn;
-      var peer = new Peer('hanamikojiFanGirl');
+      var peer = new Peer(channel);
       peer.on('connection', connectionEstablished);
       peer.on('close', function() {
         console.log("# peer close");
