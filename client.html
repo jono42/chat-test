@@ -3,6 +3,9 @@
   <head>
     <script src="https://unpkg.com/peerjs@1.4.4/dist/peerjs.min.js"></script>
     <script>
+      var name = prompt("Channel?");
+      console.log("Opening connection to:", name);
+
       var peer = new Peer();
       peer.on('open', function() {
         console.log("# peer open");
@@ -20,10 +23,8 @@
         console.log("# peer error");
         console.log(arguments);
       });
-      
-      var channel = prompt("Channel?")
-      console.log("Opening connection to: ", channel);
-      var conn = peer.connect(channel);
+
+      var conn = peer.connect(name);
       conn.on('data', function(data) {
         console.log('# conn data');
         console.log(arguments);
