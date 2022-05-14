@@ -2,10 +2,12 @@
   <head>
     <script src="https://unpkg.com/peerjs@1.4.4/dist/peerjs.min.js"></script>
     <script>
-      var peer = new Peer();
-      var conn = peer.connect('tailsChao');
-      conn.on('open', connectionOpen);
-      conn.on('error', errorHandler);
+      var peer = new Peer('tailsChao');
+      peer.on('connection',connectionEstablished);
+     
+      function connectionEstablished(conn) {
+          conn.on('data', receivedMessage);
+      }
       
       function connectionOpen() {
           conn.on('data', receivedMessage);
