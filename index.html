@@ -3,10 +3,13 @@
     <script src="https://unpkg.com/peerjs@1.4.4/dist/peerjs.min.js"></script>
     <script>
       var peer = new Peer();
-      var conn = peer.connect('another-peers-id');
-      conn.on('open', helloWorld);
-      conn.on('data', receivedMessage);
+      var conn = peer.connect('tailsChao');
+      conn.on('open', connectionOpen);
       conn.on('error', errorHandler);
+      
+      function connectionOpen() {
+          conn.on('data', receivedMessage);
+      }
 
       function helloWorld() {
           console.log("Hello world!");
