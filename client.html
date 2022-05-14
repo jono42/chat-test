@@ -28,6 +28,14 @@
         console.log(arguments);
         console.log(data);
       });
+      conn.on('open', function() {
+        console.log('# conn open');
+        console.log(arguments);
+      });
+      conn.on('error', function() {
+        console.log('# conn error');
+        console.log(arguments);
+      });
     </script>
   </head>
   <body>
