@@ -21,7 +21,8 @@
         console.log(arguments);
       });
       
-      var conn = peer.connect('hanamikojiFanGirl');
+      var channel = prompt("Channel?")
+      var conn = peer.connect(channel);
       conn.on('data', function(data) {
         console.log('# conn data');
         console.log(arguments);
