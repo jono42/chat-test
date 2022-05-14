@@ -5,6 +5,18 @@
     <script>
       var peer = new Peer('tailsChao');
       peer.on('connection', connectionEstablished);
+      peer.on('close', function() {
+        console.log("# peer close");
+        console.log(arguments);
+      });
+      peer.on('disconnected', function() {
+        console.log("# peer disconnected");
+        console.log(arguments);
+      });
+      peer.on('error', function() {
+        console.log("# peer error");
+        console.log(arguments);
+      });
      
       function connectionEstablished(conn) {
           console.log('# peer connection');
