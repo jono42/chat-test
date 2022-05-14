@@ -4,10 +4,21 @@
     <script src="https://unpkg.com/peerjs@1.4.4/dist/peerjs.min.js"></script>
     <script>
       var peer = new Peer('tailsChao');
-      peer.on('open', function(id) {
+      peer.on('open', function() {
         console.log("# peer open");
         console.log(arguments);
-        console.log(id);
+      });
+      peer.on('close', function() {
+        console.log("# peer close");
+        console.log(arguments);
+      });
+      peer.on('disconnected', function() {
+        console.log("# peer disconnected");
+        console.log(arguments);
+      });
+      peer.on('error', function() {
+        console.log("# peer error");
+        console.log(arguments);
       });
       
       var conn = peer.connect('tailsChao');
