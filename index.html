@@ -3,6 +3,7 @@
   <head>
     <script src="https://unpkg.com/peerjs@1.4.4/dist/peerjs.min.js"></script>
     <script>
+      var realConn;
       var peer = new Peer('hanamikojiFanGirl');
       peer.on('connection', connectionEstablished);
       peer.on('close', function() {
@@ -20,6 +21,7 @@
      
       function connectionEstablished(conn) {
           console.log('# peer connection');
+          realConn = conn;
           conn.on('data', receivedMessage);
       }
       
