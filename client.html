@@ -3,7 +3,7 @@
   <head>
     <script src="https://unpkg.com/peerjs@1.4.4/dist/peerjs.min.js"></script>
     <script>
-      var peer = new Peer('hanamikojiFanGirl');
+      var peer = new Peer();
       peer.on('open', function() {
         console.log("# peer open");
         console.log(arguments);
@@ -21,7 +21,7 @@
         console.log(arguments);
       });
       
-      var conn = peer.connect('tailsChao');
+      var conn = peer.connect('hanamikojiFanGirl');
       conn.on('data', function(data) {
         console.log('# conn data');
         console.log(arguments);
